@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Pune Real Estate</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Pune Real Estate</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Location" placeholder="Location" required="required" />
+        <input type="text" name="BHK" placeholder="Number of BHK" required="required" />
+        <input type="text" name="Bath" placeholder="Number of Bathrooms" required="required" />
+        <input type="text" name="Balcony" placeholder="Number of Balconies" required="required" />
+        <input type="text" name="Sqft" placeholder=" Total Sqft" required="required" />
+		<input type="text" name="area_type" placeholder="area type" required="required" />
+        <input type="text" name="availability" placeholder="availability" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
