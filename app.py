@@ -37,14 +37,15 @@ def predict():
                               'Vishrant Wadi', 'Wadgaon Sheri', 'Wagholi', 'Wakadewadi', 'Wanowrie',
                               'Warje', 'Yerawada', 'Ready To Move', 'Built-up  Area', 'Carpet  Area', 'Plot  Area'])
 
-
     data=request.form.values()
+
     data=list(data)
-    location=data[0]
-    bhk=data[1]
-    bath=data[2]
-    balcony=data[3]
-    sqft=data[4]
+
+    bhk=data[0]
+    bath=data[1]
+    balcony=data[2]
+    sqft=data[3]
+    location=data[4]
     area_type=data[5]
     availability=data[6]
 
@@ -74,7 +75,7 @@ def predict():
 
     output = model.predict([x])
     output = round(output[0], 2)
-    return render_template('index.html', prediction_text='House Price will be $ {}'.format(output))
+    return render_template('index.html', prediction_text='House Price will be RS. {} Lacs'.format(output))
 
 
 
